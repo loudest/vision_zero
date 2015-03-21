@@ -3,7 +3,7 @@ Vision Zero Project
 
 ###Team Members
 
-(@ammiranda)[http://github.com/ammiranda]
+[@ammiranda](http://github.com/ammiranda)
 Ed Sarausad
 Kate Hotler
 Griffin Howlett
