@@ -1,2 +1,28 @@
+# always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+
+# OS or Editor folders
+.DS_Store
+.cache
+.project
+.settings
+.tmproj
+nbproject
+Thumbs.db
+
+# python / flask
 .venv/
 *.pyc
+
+# node / bower
+node_modules
+bower_components
