@@ -14,3 +14,5 @@ Vision Zero Project
 * Peter Shaw
 * Kenneth Trease
 * Dongho Chang
+* Sheree Wen
+* Jim Walseth
