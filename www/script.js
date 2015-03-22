@@ -20,9 +20,37 @@ $(function(){
 	});
   }
 
-  updateMarkers();
+  window.oldRegions = null;
+  function updateRegions(){
+  	$.ajax({
+      type: 'POST',
+      url: '/regions.json',
+      dataType: 'json',
+      data: JSON.stringify(map.getBounds()),
+      contentType: 'application/json; charset=utf-8',
+      success: function (result) {
+      	console.log(result);
+        if (oldRegions) map.removeLayer(oldRegions);
+         
+		oldRegions = new L.GeoJSON();
+		oldRegions.on('featureparse', function(e) {
+			e.layer.setStyle({ color:  '#003300', weight: 2, fill: true, fillColor: '#009933' });
+		});
+		oldRegions.addData(result);
+		map.addLayer(oldRegions);
+      },
+      error: function (req, status, error) {
+        console.error('Unable to get region data');
+      }
+    });
+  }
+
+  function updateAll(){
+  	updateMarkers();
+  	updateRegions();
+  }
 
   map.on('zoomend', updateMarkers);
   map.on('dragend', updateMarkers);
-  map.on('moveend', updateMarkers);
+  map.whenReady(updateAll);
 });
