@@ -16,7 +16,14 @@ $(function(){
 
 	$.getJSON('crashdata.json?lng=' + center.lng + '&lat=' + center.lat, function(data){
 	  if (oldMarkers) map.removeLayer(oldMarkers);
-	  oldMarkers = L.geoJson(data).addTo(map);
+	  oldMarkers = L.geoJson(data, {
+	  	pointToLayer: function(feature, latlng){
+	  		return new L.CircleMarker(latlng)
+	  			.setRadius(3)
+	  			.setStyle({ color:  'red'})
+	  		;
+	  	}
+	  }).addTo(map);
 	});
   }
 
@@ -24,12 +31,11 @@ $(function(){
   function updateRegions(){
   	$.ajax({
       type: 'POST',
-      url: '/regions.json',
+      url: 'regions.json',
       dataType: 'json',
       data: JSON.stringify(map.getBounds()),
       contentType: 'application/json; charset=utf-8',
       success: function (result) {
-      	console.log(result);
         if (oldRegions) map.removeLayer(oldRegions);
          
 		oldRegions = new L.GeoJSON();
