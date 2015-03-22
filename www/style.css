@@ -4,6 +4,10 @@ html, body {
     width: 100%;
 }
 
+#map { 
+    height: 100%; 
+}
+
 * {
 	/* prevents short flicker on iOS devices */
     -webkit-tap-highlight-color: rgba(0,0,0,0);
