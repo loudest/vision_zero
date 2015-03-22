@@ -8,4 +8,6 @@ $(function(){
     subdomains: '1234',
   }).addTo(map);
 
+  L.geoJson(collisionData).addTo(map);
+
 });
