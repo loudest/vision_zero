@@ -16,3 +16,5 @@ Vision Zero Project
 * Dongho Chang
 * Sheree Wen
 * Jim Walseth
+
+###Goal: Improve overall understanding of the region’s transportation needs
