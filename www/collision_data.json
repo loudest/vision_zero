@@ -1,4 +1,4 @@
-var collisionData = {
+{
     "type": "FeatureCollection",
     "crs": {
         "type": "name",

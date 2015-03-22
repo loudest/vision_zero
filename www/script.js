@@ -8,6 +8,9 @@ $(function(){
     subdomains: '1234',
   }).addTo(map);
 
-  L.geoJson(collisionData).addTo(map);
+  $.getJSON('crashdata.json', function(data){
+  	console.log(data);
+  	L.geoJson(data).addTo(map);
+  });
 
 });

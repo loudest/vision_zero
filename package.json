@@ -1,0 +1,23 @@
+{
+  "name": "vision_zero",
+  "version": "0.0.0",
+  "description": "Vision Zero Project ===",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/loudest/vision_zero.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loudest/vision_zero/issues"
+  },
+  "homepage": "https://github.com/loudest/vision_zero",
+  "dependencies": {
+    "express": "^3.20.2"
+  }
+}
