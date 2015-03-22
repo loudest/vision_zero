@@ -9,17 +9,15 @@ var server = express()
 	.use(express.bodyParser())
 
 server.get('/crashdata.json', function(req,res){
+	if (!req.query.lng || !req.query.lat) return console.error('lat & lng required');
 
-	// TODO: get loc from querystring
-	var fakeLoc = [-122.32348092899991,47.637531713000044] // long,lat
 	var conString = "postgres://awsuser:Password@vision-zero.czkztglgrevo.us-west-2.rds.amazonaws.com/vision_zero";
-
 	pg.connect(conString, function(err, client){
 	  if (err) return console.error('error fetching client from pool', err);
 	  
 	  // all data within 0.5 miles
-	  var query = 'select weather_condition, lighting_condition, ST_AsGeoJSON(wkb_geometry) as geometry from collision_data where ST_Distance_Sphere(wkb_geometry, ST_MakePoint($1,$2)) <= 0.5 * 1609.34';
-	  client.query(query, fakeLoc, function(err, result) {
+	  var query = 'select ST_AsGeoJSON(wkb_geometry) as geometry from collision_data where ST_Distance_Sphere(wkb_geometry, ST_MakePoint($1,$2)) <= 0.5 * 1609.34';
+	  client.query(query, [req.query.lng,req.query.lat], function(err, result) {
 	    if (err) return console.error('error running query', err);
 	   	
 	    var geoJson = {
