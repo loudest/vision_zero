@@ -1,6 +1,8 @@
 Vision Zero Project
 ===
 
+![Screenshot](VisionZeroStreetScore.png)
+
 ###Team Members
 
 * [@ammiranda](http://github.com/ammiranda)
