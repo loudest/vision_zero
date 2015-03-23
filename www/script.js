@@ -27,6 +27,23 @@ $(function(){
 	});
   }
 
+  window.oldSchools = null;
+  function updateSchools(){
+	$.getJSON('schooldata.json', function(data){
+
+	  console.log(data);
+	  if (oldSchools) map.removeLayer(oldSchools);
+	  oldSchools = L.geoJson(data, {
+	  	pointToLayer: function(feature, latlng){
+	  		return new L.CircleMarker(latlng)
+	  			.setRadius(8)
+	  			.setStyle({ color:  'black'})
+	  		;
+	  	}
+	  }).addTo(map);
+	});
+  }
+
   window.oldRegions = null;
   function updateRegions(){
   	$.ajax({
@@ -54,6 +71,7 @@ $(function(){
   function updateAll(){
   	updateMarkers();
   	updateRegions();
+  	updateSchools();
   }
 
   map.on('zoomend', updateMarkers);
