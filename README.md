@@ -21,3 +21,5 @@ Vision Zero Project
 * Dorene Cornwell
 
 ###Goal: Improve overall understanding of the region’s transportation needs
+
+### Shared work folder [Vision Zero Safe Street Score](https://drive.google.com/folderview?id=0BxiLoXQcmiZLflVYamhvS2h6MkZfM1ZOVFl0WDRHejdUamRRUGNybGhwMU91dkdmYmp5VzA&usp=sharing)
