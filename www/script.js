@@ -55,11 +55,23 @@ $(function(){
       success: function (result) {
         if (oldRegions) map.removeLayer(oldRegions);
          
-		oldRegions = new L.GeoJSON();
-		oldRegions.on('featureparse', function(e) {
-			e.layer.setStyle({ color:  '#003300', weight: 2, fill: true, fillColor: '#009933' });
-		});
-		oldRegions.addData(result);
+		oldRegions = new L.GeoJSON(result, {
+      onEachFeature: function(feature, layer) {
+        // layer.setStyle({ color:  '#003300', weight: 2, fill: true, fillColor: '#009933' });
+      },
+      pointToLayer: function(feature, latlng) {
+        feature.propereties = {safetyScore: getRandomInt(30,90)};
+
+        return new L.marker(latlng, {icon: L.divIcon({
+          iconSize: null,
+          iconAnchor: null,
+          className: 'safescore-icon',
+          html: feature.propereties.safetyScore
+        })});
+      }
+
+    });
+
 		map.addLayer(oldRegions);
       },
       error: function (req, status, error) {
@@ -68,10 +80,18 @@ $(function(){
     });
   }
 
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
   function updateAll(){
   	updateMarkers();
   	updateRegions();
   	updateSchools();
+  }
+
+  function pixelsToMeters(pixCount, lat, zoom){
+  	return pixCount * 6372.7982 * Math.cos(lat /180 *2 *Math.PI) / Math.pow(2, zoom +8)
   }
 
   map.on('zoomend', updateMarkers);

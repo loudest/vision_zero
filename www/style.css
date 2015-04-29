@@ -20,3 +20,41 @@ html, body {
     -ms-user-select: none;
     user-select: none;
 }
+
+.safescore-icon {
+    left: -35px;
+    top: -102px;
+
+    width: 100px;
+    height: 102px;
+    
+    background-image: url(http://cdn.leafletjs.com/leaflet-0.7.3/images/marker-shadow.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    text-align: center;
+    text-indent: -29px;
+    padding-top: 36px;
+    box-sizing: border-box;
+    color: rgb(252, 255, 0);
+    font-size: 19pt;
+    text-shadow: 1px 1px 2px black, -1px -1px 2px rgb(200,200,200);
+}
+
+.safescore-icon:before {
+    content: '';
+
+    left: 0px;
+    bottom: 0;
+
+    width: 70px;
+    height: 75px;
+
+    background-image: url(http://www.myiconfinder.com/uploads/iconsets/6096188ce806c80cf30dca727fe7c237.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    position: absolute;
+
+    z-index: -1;
+}
