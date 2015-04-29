@@ -60,14 +60,37 @@ $(function(){
         // layer.setStyle({ color:  '#003300', weight: 2, fill: true, fillColor: '#009933' });
       },
       pointToLayer: function(feature, latlng) {
-        feature.propereties = {safetyScore: getRandomInt(30,90)};
+        feature.propereties = {
+          safetyScore: getRandomInt(30,90),
+          speedScore: getRandomInt(10,100),
+          infractionScore: getRandomInt(10,100),
+          sidewalkScore: getRandomInt(10,100),
+          crosswalkScore: getRandomInt(10,100)
+        };
 
-        return new L.marker(latlng, {icon: L.divIcon({
+        var marker = new L.marker(latlng, {icon: L.divIcon({
           iconSize: null,
           iconAnchor: null,
+          popupAnchor: [0,-75],
           className: 'safescore-icon',
           html: feature.propereties.safetyScore
         })});
+
+        var popupContent = 
+          '<div class="metric-panel speed"> speed <div class="score">' +feature.propereties.speedScore+ '</div></div>' + 
+          '<div class="metric-panel infractions"> infractions <div class="score">' +feature.propereties.infractionScore+ '</div></div>' + 
+          '<div class="metric-panel sidewalks"> sidewalks <div class="score">' +feature.propereties.sidewalkScore+ '</div></div>' + 
+          '<div class="metric-panel crosswalks"> crosswalks <div class="score">' +feature.propereties.crosswalkScore+ '</div></div>'
+        ;
+
+        var popup = new L.Popup({
+          className: 'safescore-popup',
+          offset: [-50, 70]
+        });
+
+        marker.bindPopup(popup.setContent(popupContent));
+
+        return marker;
       }
 
     });
