@@ -1,10 +1,9 @@
 Vision Zero Project
 ===
 
+[Live Demo](http://vision-zero.herokuapp.com)
 
 ![Screenshot](VisionZeroStreetScore.png)
-
-[Live Demo](http://vision-zero.herokuapp.com)
 
 ###Team Members
 
