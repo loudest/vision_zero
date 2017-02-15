@@ -31,6 +31,6 @@ Vision Zero Project
 We made use of:
 - [Python - Flask]
 - [JavaScript]
-- [GIS geojson]
+- [GIS GeoJSON]
 
 Our code is licensed under the [MIT License](LICENSE.md).
