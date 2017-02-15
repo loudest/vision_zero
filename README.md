@@ -25,3 +25,12 @@ Vision Zero Project
 ###Goal: Improve overall understanding of the region’s transportation needs
 
 ### Shared work folder [Vision Zero Safe Street Score](https://drive.google.com/folderview?id=0BxiLoXQcmiZLflVYamhvS2h6MkZfM1ZOVFl0WDRHejdUamRRUGNybGhwMU91dkdmYmp5VzA&usp=sharing)
+
+## Technologies, APIs, and Datasets Utilized
+
+We made use of:
+- [Python - Flask]
+- [JavaScript]
+- [GIS geojson]
+
+Our code is licensed under the [MIT License](LICENSE.md).
